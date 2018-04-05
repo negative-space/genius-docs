@@ -7,26 +7,14 @@ web-application view-controller layer (templates & Views in Django terminology).
 Minimal page structure
 ========================
 
-Example of minimal page (test.col file)::
+Example of minimal page (test.col file):
+
+.. code-block:: col
+    :caption: views.py
 
     [index: /]
 
 "index" is a page's "ref" (Reference). And "/" is an url pattern.
-
-Result of generation is Django view::
-
-    from django.views.generic import TemplateView
-
-    class IndexView(TemplateView):
-
-        def get_template_names(self):
-            return ["test/index.html"]
-
-        def get_context_data(self, inherited=False, **kwargs):
-            data = super().get_context_data(inherited=True, **self.kwargs)
-            url = type('url', (object,), self.kwargs)
-
-            return {**data, **{'url': url}}
 
 Template context is generated initially empty, but with boilerplate code, so you can
 write in your own code here. only *url* helper is injected.

@@ -11,7 +11,7 @@ Welcome to Genius Generator's documentation!
    :caption: Contents:
 
    installation
-   basics
+   tutor
 
    models
    model_extras
