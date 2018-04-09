@@ -1,9 +1,9 @@
 @rest
 #########
 
-@rest extra is simple way to add rest api to your models.
+@rest annotation is simple way to add rest api to your models.
 
-Empty @rest extra, will add read only api for your model:
+Empty @rest annotation, will add read only api for your model:
 
 .. code-block:: col
     :caption: views.py
@@ -20,7 +20,7 @@ By default, all fields are published.
 Syntax
 ===========
 
-@rest extra structure is following::
+@rest annotation structure is following::
 
     @rest {
         /* rest configuration */

@@ -2,7 +2,7 @@
 @sortable
 #####################
 
-@sortable mixing does two things:
+@sortable mixin does two things:
 
 1. adds list sorting to admin list and inlines
 1. configure model to be sortable by order field
@@ -31,7 +31,7 @@ You are responsible for adding order field.
     @admin
 
 
-There is also @order extra that does the same, but do not add anything to admin:
+There is also @order annotation that does the same, but do not add anything to admin:
 
 .. code-block:: col
     :caption: models.py

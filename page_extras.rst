@@ -1,10 +1,10 @@
 .. _PageExtras:
 
-Page Extras
+Page annotations
 ---------------------
 
 .. toctree::
     :maxdepth: 2
     :glob:
 
-    extras/*
+    page/extras/*

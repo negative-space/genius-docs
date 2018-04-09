@@ -1,6 +1,6 @@
 
 
-General
+Col file
 ---------------------
 
 .. toctree::

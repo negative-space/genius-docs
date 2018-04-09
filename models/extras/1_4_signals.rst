@@ -1,7 +1,7 @@
 @pre_* @post_*
 ###########
 
-There is entire collection of extras that add signal handlers:
+There is entire collection of annotations that add signal handlers:
 
 @pre_save
     Executes code before model save

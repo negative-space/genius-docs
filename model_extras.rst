@@ -1,6 +1,6 @@
 .. _ModelExtras:
 
-Model Extras
+Model annotations
 ---------------------
 
 .. toctree::

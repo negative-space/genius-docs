@@ -13,10 +13,11 @@ Welcome to Genius Generator's documentation!
    installation
    tutor
 
+   general
    models
    model_extras
    pages
-   general
+   page_extras
 
 
 

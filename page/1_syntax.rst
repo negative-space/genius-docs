@@ -1,35 +1,69 @@
 Overview
 ####################
 
-The Pages feature is powerful way to automat all common patterns with
-web-application view-controller layer (templates & Views in Django terminology).
+Pages allow to generate Views & and basic structure for templates.
 
 Minimal page structure
 ========================
 
-Example of minimal page (test.col file):
+To create a page, just write a page name in square braces:
+
+.. code-block:: col
+    :caption: views.py
+
+    [index]
+
+Url
+=======
+
+Page may have an url::
+
+    [index: /]
+
+Or more complex url expression::
+
+    [index: /cat/<pk>]
+
+Url may be `"translatable" <https://docs.djangoproject.com/en/2.0/topics/i18n/translation/#django.conf.urls.i18n.i18n_patterns>`_, it means it will get language prefix like "/en/"::
+
+    [index: $/cat/<pk>]
+
+Template
+===========
+
+Every [page] has it's own template. By default template name will be "myapp/page_name.html".
+
+But you can specify template name explicitly:
+
+.. code-block:: col
+    :caption: views.py
+
+    [index: /: myindex_template.html]
+
+Another cool trick is that you can generate template names dynamically:
+
+.. code-block:: col
+    :caption: views.py
+
+    [index: /some/<username>: expr<"user_templates/{}.html" % url.username>]
+
+Inside expr<...> you can insert any python code oneliner, but do not use ">", otherwise parser will not
+be able to parse the expression.
+
+.. note::
+    If template does not exist, it will be generated as well.
+
+Variables
+============
+
+Variables are just set of values that will available in template:
 
 .. code-block:: col
     :caption: views.py
 
     [index: /]
+    foo: "hello"
+    boo: 123
 
-"index" is a page's "ref" (Reference). And "/" is an url pattern.
-
-Template context is generated initially empty, but with boilerplate code, so you can
-write in your own code here. only *url* helper is injected.
-
-Genius automatically assumes template name by combining application name and view name.
-Template html looks like this::
-
-    {# generated #}
-    {% extends 'base.html' %}
-
-.. note::
-    "{# generated #}" marker is used by Genius to determine if file has been changed by hands or not.
-    If file has no this marker, then generator thinks it's file written by hands, and never overwrite it.
-
-Template name can be specified explicitly::
-
-    [index: /: somedir/somefile.html]
+foo & boo are variable names and any python expression on right side.
 
